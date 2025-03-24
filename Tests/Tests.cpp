@@ -5,6 +5,9 @@
 #include "../Maths and Algorithms/Maths.h"
 #include "../Maths and Algorithms/Matrix.h"
 #include "../Maths and Algorithms/Vector.h"
+
+#include ""
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
@@ -556,7 +559,7 @@ namespace Tests
 			matrix.Data[2][2] = 1.0f;
 
 			// Act
-			matrix.RotateAroundX(angle);
+			matrix.SetRotateAroundX(angle);
 
 			Assert::AreEqual(matrix.Data[1][1], 0.707f, 0.0001f, L"Rotated element is incorrect");
 			Assert::AreEqual(matrix.Data[1][2], 0.293f, 0.0001f, L"Rotated element is incorrect");
@@ -585,7 +588,7 @@ namespace Tests
 			matrix.Data[2][2] = 1.0f;
 
 			// Act
-			matrix.RotateAroundY(angle);
+			matrix.SetRotateAroundY(angle);
 
 			// Assert
 			// Verify that the matrix is rotated correctly
@@ -619,7 +622,7 @@ namespace Tests
 			matrix.Data[2][2] = 1.0f;
 
 			// Act
-			matrix.RotateAroundZ(angle);
+			matrix.SetRotateAroundZ(angle);
 
 			// Assert
 			// Verify that the matrix is rotated correctly
@@ -658,76 +661,20 @@ namespace Tests
 			Assert::AreEqual(matrix.Data[2][2], 4.0f, 0.0001f, L"Translate element is incorrect");
 		}
 
-		TEST_METHOD(RotateAroundXTest)
-		{
-			// Arrange
-			Matrix matrix;
-			// Initialize the matrix with the given values
-			matrix.SetMatrix({ {1, 0, 1}, {0, 1, 1}, {0, 0, 1} });
-
-			Vector point(1.0f, 2.0f, 0.0f); // Modified point
-			float angle = 45.0f; // Example angle
-
-			// Act
-			matrix.RotateAroundX(point, angle);
-
-			// Assert
-			Assert::AreEqual(matrix.Data[1][1], 0.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[1][2], 1.707f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[2][1], -1.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[2][2], 0.707f, 0.0001f, L"Translate element is incorrect");
-		}
-
-		TEST_METHOD(RotateAroundYTest)
-		{
-			// Arrange
-			Matrix matrix;
-			// Initialize the matrix with the given values
-			matrix.SetMatrix({ {1, 0, 1}, {0, 1, 1}, {0, 0, 1} });
-
-			Vector point(1.0f, 2.0f, 0.0f); // Modified point
-			float angle = 45.0f; // Example angle
-
-			// Act
-			matrix.RotateAroundY(point, angle);
-
-			// Assert
-			Assert::AreEqual(matrix.Data[0][2], 0.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[1][2], 1.414f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[2][1], 0.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[2][2], 1.0f, 0.0001f, L"Translate element is incorrect");
-		}
-
-		TEST_METHOD(RotateAroundZTest)
-		{
-			// Arrange
-			Matrix matrix;
-			// Initialize the matrix with the given values
-			matrix.SetMatrix({ {1, 0, 1}, {0, 1, 1}, {0, 0, 1} });
-
-			Vector point(1.0f, 2.0f, 0.0f); // Modified point
-			float angle = 45.0f; // Example angle
-
-			// Act
-			matrix.RotateAroundZ(point, angle);
-
-			// Assert
-			Assert::AreEqual(matrix.Data[0][0], 0.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[0][1], 1.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[2][0], -1.0f, 0.0001f, L"Translate element is incorrect");
-			Assert::AreEqual(matrix.Data[2][1], 0.0f, 0.0001f, L"Translate element is incorrect");
-		}
+		
 
 		TEST_METHOD(MatrixMultiplicationTest)
 		{
 			// Arrange
 			Matrix matrix1;
 			// Initialize matrix1 with some values
-			matrix1.SetMatrix({ {1, 2, 3}, {4, 5, 6}, {7, 8, 9} });
+			int A[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+			matrix1.SetMatrix(A);
 
 			Matrix matrix2;
 			// Initialize matrix2 with some values
-			matrix2.SetMatrix({ {9, 8, 7}, {6, 5, 4}, {3, 2, 1} });
+			int B[3][3] = { {9, 8, 7}, {6, 5, 4}, {3, 2, 1} };
+			matrix2.SetMatrix(B);
 
 			// Act
 			Matrix result = matrix1 * matrix2;

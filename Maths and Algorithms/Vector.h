@@ -2,6 +2,11 @@
 class Vector
 {
 public:
+	float x, y, z;
+	Vector(float X, float Y, float Z)
+	{
+		
+	}
 	float Magnitude();
 
 
