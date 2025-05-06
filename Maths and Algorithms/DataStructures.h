@@ -7,12 +7,16 @@ template <typename T>
 class Stack
 {
 public:
+ 
+
     T* Data;
     size_t Size;
 
-    T Pop();
-    T Peek();
-    void Push(T dataToPush);
+    Stack();
+
+    T Pop(); //remove
+    T Peek(); // Look at top
+    void Push(T dataToPush);// add
 
 };
 
@@ -23,6 +27,9 @@ public:
 
     T* Data;
     size_t Size;
+
+    Queue();
+
 
     T Pop();
     T Peek();
@@ -53,3 +60,8 @@ public:
     void HeapifyDown(); //Bubble Down;
 };
 
+template<typename T>
+inline T Queue<T>::Pop()
+{
+    return T();
+}
