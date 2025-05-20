@@ -1,9 +1,22 @@
 #include "Vector.h"
+#include "Maths.h"
 
 
 float Vector::Magnitude()
 {
-	return 0;
+/*float value;
+	float M = 0;
+	if (value < 0) 
+	{
+		M =  (x * x) + (y * y) + (z * z) ;
+
+		
+	}
+	return M;*/
+
+	return MathUtils::Pythagoras3D(x, y, z);
+
+
 }
 
 
