@@ -4,7 +4,10 @@ namespace Algorithms
 {
     inline int * BubbleSort(int* Data, size_t Size)
 	 {
-		 
+		for (int i = 0; i < Size; i++)
+		{
+			if( Data[i] )
+		}
 	 }
 
 
@@ -61,14 +64,14 @@ namespace Algorithms
 	 }
 
 
-    inline bool BinarySearch(int* Data, size_t Size, int target)
-	 {
-		int Midpoint = (Size -1) / 2;
+	inline bool BinarySearch(int* Data, size_t Size, int target)
+	{
+		int Midpoint = (Size - 1) / 2;
 		int Endpoint = Size;
 
 
 		if (target == Data[Midpoint])
-				return true; //stop the loop
+			return true; //stop the loop
 		if (target < Data[Midpoint])
 		{
 			int* sub = new int[Midpoint];
@@ -78,7 +81,8 @@ namespace Algorithms
 			}
 			BinarySearch(sub, Midpoint, target);
 		}
-		if (target > Data[Midpoint]) {
+	
+		/*if (target > Data[Midpoint]) {
 
 			int* sub = new int[Midpoint];
 			for (int k = Midpoint; k < Endpoint; k++)
@@ -88,7 +92,7 @@ namespace Algorithms
 			BinarySearch(sub, Midpoint, target);
 
 
-			}
+			}*/
 
 
 

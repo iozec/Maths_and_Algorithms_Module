@@ -22,11 +22,14 @@ float Vector::Magnitude()
 
 void Vector::Normalise()
 {
+	MathUtils::Pythagoras3D(x, y, z);
+
 }
 
 
 void Vector::Scale(float Scaler)
 {
+
 }
 
 
