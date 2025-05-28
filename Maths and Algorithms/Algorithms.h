@@ -3,30 +3,64 @@
 namespace Algorithms
 {
     inline int * BubbleSort(int* Data, size_t Size)
-	 {
-		for (int i = 0; i < Size; i++)
+	 {  // size_t prevents negative values potentially breaking the algorithm
+		for (size_t i = 0; i < Size - 1; i++)
 		{
-			if (Data[i] > Data[i + 1])
+			for (size_t j = 0; j < Size - i - 1; j++) 
 			{
-
-				int j = Data[i];
-				Data[i] = Data[i + 1];
-				Data[i + 1] = j;
-
+				if (Data[j] > Data[j + 1]) 
+				{
+					int temp = Data[j];
+					Data[j] = Data[j + 1];
+					Data[j + 1] = temp;
+				}
 			}
 		}
+
+		return Data;
+	}
+
+		
 	 }
 
 
     inline int * InsesrtionSort(int* Data, size_t Size)
 	 {
-		 return nullptr;
+		for (int i = 0; i < Size; i++)
+		{
+
+			int temp = Data[i];
+			int j = i - 1;
+
+			while (j >= 0 && Data[j] > temp) 
+			{
+				Data[j + 1] = Data[j];
+				j = j - 1;
+
+			}
+			Data[j + 1] = temp;
+
+			}
+			return Data;
 	 }
 
 
     inline int * SelectionSort(int* Data, size_t Size)
 	 {
-		 return nullptr;
+		for (int i = 0; i < Size; i++) 
+		{
+
+			while (Data[i] < Data[i + 1])
+			{
+
+
+
+
+			}
+
+
+
+		}
 	 }
 
 
