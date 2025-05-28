@@ -6,7 +6,14 @@ namespace Algorithms
 	 {
 		for (int i = 0; i < Size; i++)
 		{
-			if( Data[i] )
+			if (Data[i] > Data[i + 1])
+			{
+
+				int j = Data[i];
+				Data[i] = Data[i + 1];
+				Data[i + 1] = j;
+
+			}
 		}
 	 }
 
