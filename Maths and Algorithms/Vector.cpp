@@ -29,17 +29,26 @@ void Vector::Normalise()
 
 void Vector::Scale(float Scaler)
 {
-
+	x = x * Scaler;
+	y = y * Scaler;
+	z = z * Scaler;
 }
 
 
 float Vector::Dot(Vector& B)
 {
-	return 0;
+	float Dot;
+	Dot = (x * B.x) + (y * B.y) + (z * B.z);
+
+	return Dot;
 }
 
 
 Vector Vector::Cross(Vector& B)
 {
-	return *this;
+	
+	return Vector((y * B.z - z * B.y), (z * B.x - x * B.z), (x * B.y - y * B.x));
+
 }
+
+

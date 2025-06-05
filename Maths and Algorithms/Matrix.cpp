@@ -1,5 +1,4 @@
 #include "Matrix.h"
-#include <corecrt_math_defines.h>
 #include "Maths.cpp"
 
 
@@ -62,7 +61,9 @@ void Matrix::SetRotateAroundZ(float Angle) {
 
 void Matrix::Translate(Vector delta) {
 
-	Data[0][0]
+	Data[0][3] += delta.x;
+	Data[1][3] += delta.y; 
+	Data[2][3] += delta.z;
 
 }
  void Matrix::SetMatrix(int[3][3]) {

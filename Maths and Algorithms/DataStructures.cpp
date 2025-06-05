@@ -68,17 +68,18 @@ template<typename T>
  template<typename T>
  T Queue<T>::Pop()
  {
-     if (Count !> 0) {
+     if (Count !> 0) 
+     {
          Count = [Count - Count];
 
          return Data[Count];
 
          Data = Count + 1
-         if (Data % >= 1){
+             if (Data % >= 1) {
 
-           Data = 0
+                 Data = 0
+             }
+
      }
-     
-
      
  }
