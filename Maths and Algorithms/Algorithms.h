@@ -26,7 +26,7 @@ namespace Algorithms
 
     inline int * InsesrtionSort(int* Data, size_t Size)
 	 {
-		for (int i = 0; i < Size; i++)
+		for (size_t i = 0; i < Size; i++)
 		{
 
 			int temp = Data[i];

@@ -7,7 +7,7 @@ class Matrix
 public:
 	//this is a 3 x 3
 
-	float Data[3][3] ;
+	float Data[3][3];
 
 	float Determinate();
 
@@ -18,11 +18,23 @@ public:
 	Matrix operator* (Matrix& RHS)
 	{
 		Matrix& LHS = *this;
+		Matrix Hold;
 
-		//fill this in to multiply Matrix LHS by Matrix RHS
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				Hold.Data[i][j] = 0;
 
-		return LHS;
+				for (int k = 0; k < 3; k++) {
+					// multiplying the matrix
+					Hold.Data[i][j] += LHS.Data[i][k] * RHS.Data[k][j];
+				}
+			}
+		}
+		return Hold;
 	}
+
+
+	
 	Vector operator* (Vector& RHS)
 	{
 		Matrix& LHS = *this;
